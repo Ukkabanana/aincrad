@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth'
 import { auth } from 'firebase/app'
+import { ToastController } from '@ionic/angular' 
+import { AlertController } from '@ionic/angular'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +14,12 @@ export class LoginPage implements OnInit {
 
   username: string =""
   password: string =""
-  constructor(public afAuth: AngularFireAuth) { }
+  constructor(
+    public afAuth: AngularFireAuth,
+    public toastCtrl: ToastController,
+    public alertCtrl: AlertController,
+    public router: Router
+    ) { }
 
   ngOnInit() {
   }
@@ -20,6 +28,8 @@ export class LoginPage implements OnInit {
     const { username, password } = this
     try{
       const result = await this.afAuth.auth.signInWithEmailAndPassword(username,password)
+      this.showToast("Welcome back to the realm !")
+      this.router.navigate(['home'])
     } catch(error){
       console.dir(error)
       if(error.code == "auth/user-not-found"){
@@ -29,6 +39,25 @@ export class LoginPage implements OnInit {
         console.log("Invalid email")
       }
     }
+  }
+
+  async showToast(header: string){
+    const toast = await this.toastCtrl.create({
+      header,
+      // message,
+      position: 'bottom',
+      duration: 2000
+    })
+    await toast.present()
+  }
+
+  async showAlert(header: string, message: string){
+    const alert = await this.alertCtrl.create({
+      header,
+      message,
+      buttons: ['Ok']
+    })
+    await alert.present()
   }
 
 }
