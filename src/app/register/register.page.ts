@@ -3,6 +3,8 @@ import { AngularFireAuth } from '@angular/fire/auth'
 import { auth } from 'firebase/app'
 import { ToastController } from '@ionic/angular' 
 import { AlertController } from '@ionic/angular'
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-register',
@@ -18,7 +20,8 @@ export class RegisterPage implements OnInit {
   constructor(
     public afAuth: AngularFireAuth,
     public toastCtrl: ToastController,
-    public alertCtrl: AlertController
+    public alertCtrl: AlertController,
+    public router: Router
     ) { }
 
   ngOnInit() {
@@ -35,6 +38,7 @@ export class RegisterPage implements OnInit {
       const result = await this.afAuth.auth.createUserWithEmailAndPassword(username,password)
       console.log(result)
       this.showToast("Success!", "Welcome to the realm!")
+      this.router.navigate(['home'])
     } catch(error){
       console.dir(error)
       if(error.code=="auth/weak-password"){
