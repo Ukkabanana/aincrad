@@ -34,9 +34,11 @@ export class LoginPage implements OnInit {
       console.dir(error)
       if(error.code == "auth/user-not-found"){
         console.log("User not found")
+        this.showAlert("Error", "User not found")
       }
       if(error.code == "auth/invalid-email"){
         console.log("Invalid email")
+        this.showAlert("Error", "Invalid email")
       }
     }
   }
