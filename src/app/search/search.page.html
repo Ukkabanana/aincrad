@@ -11,8 +11,9 @@
       [(ngModel)]="searchText"
       (ngModelChange) ="onInput(searchText)">
     </ion-searchbar>
-  <div id=searchRes></div>
-  <div *ngFor="let i of searchResArr; let j = index" id=item{{j}}>
-    {{i}}
-  </div>
+  <ion-list>
+    <ion-item *ngFor="let i of searchResArr; let j = index" id=item{{j}}>
+      {{i}}
+    </ion-item>
+  </ion-list>
 </ion-content>
