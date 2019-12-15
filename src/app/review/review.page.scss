@@ -10,18 +10,37 @@
     display: flex;
 }
 ion-content{
-    --ion-background-color:#303030;
+    --background:#303030;
+    // display: flex;
+    // align-items: stretch ;
 }
-.scroller {
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: none;  // IE 10+
-    scrollbar-width: none;  // Firefox
-    scroll-behavior: smooth;
-
-    &::-webkit-scrollbar {
-      display: none; // Safari and Chrome
-    }
+.star-flex{
+    display: flex;
+    justify-content: space-evenly;
+}
+.title{
+    font-size: 30px ;
+    font-family:'Manrope-ExtraBold';
+    font-style: normal;
+    color: #FFFFFF;
+    letter-spacing: 0.05em;
+    text-shadow: 2px 2px 0px rgba(66, 255, 222, 0.5);
+    text-align: start;
+    line-height: 20px;
+    text-indent: 10px;
+}
+.header{
+    font-family:'Manrope-ExtraBold';
+    font-style: normal;
+    letter-spacing: 0.05em;
+    text-align: center;
+}
+.card{
+    // height: 100%;
+    background-color: white;
+}
+.submit-button{
+    
 }
 // ::-webkit-scrollbar {
 //     width: 0px;  /* Remove scrollbar space */

@@ -77,17 +77,3 @@
 
   // .scroll-y, .inner-scroll { display: none; }
 }
-
-::-webkit-scrollbar, *::-webkit-scrollbar {
-  display: none;
-  overflow: hidden;
-}
-
-ion-content {
-  overflow: hidden;
-  --overflow: hidden;
-}
-
-.scroll-content {
-  overflow: hidden;
-}

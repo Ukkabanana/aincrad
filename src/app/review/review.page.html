@@ -1,9 +1,27 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Review</ion-title>
+    <ion-title class="header">REVIEW</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="scroll-content" >
-   <div class="content"></div>
+<ion-content>
+  <h1 class="title" style="color: white;">Rate</h1>
+  <h1 class="title" style="color: white;">This</h1>
+  <h1 class="title" style="color: white;">Game</h1>
+  <div class="star-flex">
+    <ion-icon name="star" color="warning" size="large"></ion-icon>
+    <ion-icon name="star" color="warning" size="large"></ion-icon>
+    <ion-icon name="star" color="warning" size="large"></ion-icon>
+    <ion-icon name="star" color="warning" size="large"></ion-icon>
+    <ion-icon name="star" color="warning" size="large"></ion-icon>
+  </div>
+  <ion-card class="card">
+    <ion-card-header>
+      <ion-icon name="create" size="large"></ion-icon>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-textarea auto-grow="true" placeholder="Write your comments here."></ion-textarea>
+    </ion-card-content>
+  </ion-card>
+  <ion-button fill="solid" color="warning" shape="round" type="submit" >Submit</ion-button>
 </ion-content>
