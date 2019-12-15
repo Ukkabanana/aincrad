@@ -1,0 +1,50 @@
+.orange-button {
+    background: linear-gradient(270deg, #F5AF19 0%, #F12711 113.31%);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    
+}
+.dark-button{
+    background-color: #222428;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+}
+#text-white{
+    font-family: 'Cairo', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    color: white;
+}
+#text-white-light{
+    font-family: 'Cairo', sans-serif;
+    font-style: normal;
+    font-weight: 350;
+    color: white;
+}
+#text-dark{
+    font-family: 'Cairo', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    color: #222428;
+}
+#text-dark-light{
+    font-family: 'Cairo', sans-serif;
+    font-style: normal;
+    font-weight: 350;
+    color: #222428;
+}
+.color-gradient-header{
+    font-family: 'Cairo', sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    // color: linear-gradient(#F5AF19 0%, #F12711 113.31%);
+    // background: -webkit-linear-gradient(#F5AF19, #F12711);
+    // -webkit-background-clip: text;
+    // -webkit-text-fill-color: transparent;
+}
+.header{
+    font-family:'Manrope-ExtraBold';
+    font-style: normal;
+    letter-spacing: 0.05em;
+    text-align: center;
+}
