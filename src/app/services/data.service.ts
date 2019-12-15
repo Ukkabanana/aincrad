@@ -1,7 +1,6 @@
 import { Injectable, RootRenderer } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 
-import * as xml2js from "xml2js";
 import { map } from 'rxjs/operators';
 import { TransformProvider } from '../providers/transform';
 
@@ -17,6 +16,18 @@ export class BoardgameData {
         return this
             .http
             .get('https://www.boardgamegeek.com/xmlapi2/thing?id='+id, { responseType: "text" })      
+            // use the pipe method
+            .pipe(
+            // ... to apply oprtators to obervables
+            map((result: string) => this.transformProvider.convertToJson(result))
+            )
+    }
+
+    searchApi(searchText: string) {
+        console.log(searchText);
+        return this
+            .http
+            .get('https://www.boardgamegeek.com/xmlapi2/search?type=boardgame&query='+searchText, { responseType: "text" })   
             // use the pipe method
             .pipe(
             // ... to apply oprtators to obervables
