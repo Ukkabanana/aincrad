@@ -50,8 +50,26 @@ export class DetailsPage implements OnInit {
       else  document.getElementById("gameTime").innerHTML = "Time: "+gameItem.minplaytime.$.value+" - "+gameItem.maxplaytime.$.value+" min.";
       document.getElementById("gameAge").innerHTML =  "Age: "+gameItem.minage.$.value+"+";
     });
+  }
 
-    //Get Reviews from Firebase
+  //Refresh reviews each time users enter this page
+  ionViewWillEnter(){
+    this.getReviewsFromFirebase();
+  }
+
+  //Manually refresh this page
+  doRefresh(refresher) {
+    console.log('Refreshing...');
+
+    setTimeout(() => {
+      this.getReviewsFromFirebase();
+      console.log('Refreshed!');
+      refresher.target.complete();
+    }, 0);
+  }
+
+  //Get Reviews from Firebase
+  getReviewsFromFirebase(){
     //Need another variable because of different access level.
     var dataArr:Array<any> = [];
     //Accessing review collection in Firebase
@@ -75,12 +93,10 @@ export class DetailsPage implements OnInit {
           doc.data().duration,
           doc.data().group
         ]);
-        
       });
     })
     //Need another variable because of different access level.
     this.showReviewArr = dataArr;
-    
   }
 
 }
