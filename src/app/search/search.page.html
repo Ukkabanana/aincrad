@@ -7,13 +7,13 @@
 <ion-content>
     <ion-searchbar
       type="text"
-      placeholder="Search for a game!"
+      placeholder="Search for a game..."
       [(ngModel)]="searchText"
       (ngModelChange) ="onInput(searchText)">
     </ion-searchbar>
   <ion-list>
-    <ion-item *ngFor="let i of searchResArr; let j = index" id=item{{j}}>
-      {{i}}
+    <ion-item *ngFor="let i of searchResArr; let j = index" id=item{{j}} [routerLink]="'/details/' + i[1]">
+        {{i[0]}}
     </ion-item>
   </ion-list>
 </ion-content>
