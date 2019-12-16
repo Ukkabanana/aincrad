@@ -18,5 +18,13 @@
       </ion-label></ion-item>
     <div id=gameDesc></div>
   </ion-card>
+  <h1>Reviews</h1>
   <ion-button expand="block" [routerLink]="'/review/' + idInUrl">Leave a review!</ion-button>
+  <div id=gameReview>
+    <ion-card *ngFor="let i of showReviewArr; let j = index" id=item{{j}}>
+        <div>{{i[0]}}</div>
+        {{i[2]}}<br>
+      <i>Played for {{i[3]}} minutes with {{i[4]}} player(s).</i>
+    </ion-card>
+  </div>
 </ion-content>
