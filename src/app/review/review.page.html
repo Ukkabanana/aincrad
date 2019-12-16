@@ -8,9 +8,9 @@
   <h1 class="title" style="color: white;">Rate</h1>
   <h1 class="title" style="color: white;">This</h1>
   <h1 class="title" style="color: white;">Game</h1>
-  <ion-item>
-    <star-rating [value]='rating' size='24px' (rate)='updateStar($event)' readonly='false' checkedcolor='gold' uncheckedcolor='#c4c4c4'></star-rating>
-  </ion-item>
+  <div class=star-flex>
+    <star-rating [value]='rating' size='36px' (rate)='updateStar($event)' readonly='false' checkedcolor='gold' uncheckedcolor='#c4c4c4'></star-rating>
+  </div>
   <ion-card class="card">
     <ion-card-header>
       <ion-icon name="create" size="large"></ion-icon>
@@ -19,7 +19,7 @@
       <ion-textarea auto-grow="true" placeholder="Write your comments here." [(ngModel)]="comment"></ion-textarea>
       <ion-input type="number" placeholder="Played Duration" [(ngModel)]="time"></ion-input>
       <ion-input type="number" placeholder="Number of players" [(ngModel)]="players"></ion-input>
-      <ion-button fill="solid" color="warning" shape="round" (click)="createPost()" >Submit</ion-button>
+      <ion-button fill="solid" color="warning" shape="round" (click)="addReview()" >Submit</ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>

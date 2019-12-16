@@ -49,4 +49,21 @@ export class ReviewPage implements OnInit {
     console.log(this.rating)
   }
 
+  /*
+  createPost(){
+    const comment = this.comment
+    const players = this.players
+    const time = this.time
+    const uid = this.user.getUID()
+    console.log(comment,players,time,uid)
+    this.afstore.collection("review").add({
+        feedback: comment,
+        group: players,
+        duration: time,
+        user: uid,
+        gameid: "123456",
+        rating: 5
+    })
+  }
+  */
 }
