@@ -4,3 +4,21 @@
     letter-spacing: 0.05em;
     text-align: center;
 }
+.container {
+    font-size: 16px;
+    line-height: 16px;
+    height: 64px;
+    overflow: hidden;
+}
+.show {
+    overflow: visible;
+    height: auto;
+}
+.readMoreLess {
+    text-align: center;
+    cursor:pointer;
+}
+#recGameName {
+    text-decoration:none;
+    color:black; 
+}
