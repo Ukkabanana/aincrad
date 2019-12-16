@@ -8,13 +8,9 @@
   <h1 class="title" style="color: white;">Rate</h1>
   <h1 class="title" style="color: white;">This</h1>
   <h1 class="title" style="color: white;">Game</h1>
-  <div class="star-flex">
-    <ion-icon name="star" color="warning" size="large"></ion-icon>
-    <ion-icon name="star" color="warning" size="large"></ion-icon>
-    <ion-icon name="star" color="warning" size="large"></ion-icon>
-    <ion-icon name="star" color="warning" size="large"></ion-icon>
-    <ion-icon name="star" color="warning" size="large"></ion-icon>
-  </div>
+  <ion-item>
+    <star-rating [value]='rating' size='24px' (rate)='updateStar($event)' readonly='false' checkedcolor='gold' uncheckedcolor='#c4c4c4'></star-rating>
+  </ion-item>
   <ion-card class="card">
     <ion-card-header>
       <ion-icon name="create" size="large"></ion-icon>
