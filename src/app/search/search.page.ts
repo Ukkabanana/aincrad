@@ -23,21 +23,22 @@ export class SearchPage implements OnInit {
       
       this.bgData.searchApi(searchText).subscribe(data => {
         this.result = data;
-        console.log(this.result);  //FOR DEBUGGING
+        //console.log(this.result);  //FOR DEBUGGING
         let gameItem = this.result.items.item;
         //Reset search results
         this.searchResArr = [];
         //Show search results
         if(Array.isArray(gameItem)){
           for (let i in gameItem) {
-            console.log(gameItem[i].name.$.value); //FOR DEBUGGING
-            this.searchResArr.push(gameItem[i].name.$.value);
+            //console.log(gameItem[i].name.$.value); //FOR DEBUGGING
+            this.searchResArr.push([gameItem[i].name.$.value, gameItem[i].$.id]);
           }
         }
         //If there is only one result to be shown, item will not be an array.
-        else {
-            console.log(gameItem.name.$.value); //FOR DEBUGGING
-            this.searchResArr.push(gameItem.name.$.value);
+        else if(gameItem != undefined){
+            //console.log(gameItem.name.$.value); //FOR DEBUGGING
+            this.searchResArr.push([gameItem.name.$.value, gameItem.$.id]);
+            //console.log([gameItem.name.$.value, gameItem.$.id]); //FOR DEBUGGING
         }
       });
       
@@ -45,7 +46,7 @@ export class SearchPage implements OnInit {
     else{
       this.searchResArr = [];
     }
-    console.log(searchText);
+    //console.log(searchText);
   }
 
 }

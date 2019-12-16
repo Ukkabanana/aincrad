@@ -25,7 +25,6 @@ export class BoardgameData {
 
     //Input string (Search Text) to get data of all games containing input string in their names.
     searchApi(searchText: string) {
-        console.log(searchText);
         return this
             .http
             .get('https://www.boardgamegeek.com/xmlapi2/search?type=boardgame&query='+searchText, { responseType: "text" })   
