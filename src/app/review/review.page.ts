@@ -3,9 +3,9 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { UserService } from '../user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { StarRatingComponent } from 'ng-starrating';
-import { Observable } from 'rxjs'
 
 import { ActivatedRoute } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-review',
@@ -24,7 +24,8 @@ export class ReviewPage implements OnInit {
     public afstore: AngularFirestore,
     public user: UserService,
     public http: HttpClientModule,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    public navCtrl: NavController
   ) { }
 
   ngOnInit() {
@@ -50,28 +51,13 @@ export class ReviewPage implements OnInit {
         gameid: this.idInUrl,
         rating: rate
     })
+
+    this.navCtrl.pop();
   }
 
   updateStar($event:{oldValue:number, newValue:number, starRating:StarRatingComponent}) {
     this.rating=$event.newValue.toString();
     console.log(this.rating)
   }
-
-  /*
-  createPost(){
-    const comment = this.comment
-    const players = this.players
-    const time = this.time
-    const uid = this.user.getUID()
-    console.log(comment,players,time,uid)
-    this.afstore.collection("review").add({
-        feedback: comment,
-        group: players,
-        duration: time,
-        user: uid,
-        gameid: "123456",
-        rating: 5
-    })
-  }
-  */
+  
 }
