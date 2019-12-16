@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth'
+import { AngularFirestore } from '@angular/fire/firestore'
 import { auth } from 'firebase/app'
 import { ToastController } from '@ionic/angular' 
 import { AlertController } from '@ionic/angular'
 import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 
 @Component({
@@ -19,9 +21,11 @@ export class RegisterPage implements OnInit {
 
   constructor(
     public afAuth: AngularFireAuth,
+    public afstore: AngularFirestore,
     public toastCtrl: ToastController,
     public alertCtrl: AlertController,
-    public router: Router
+    public router: Router,
+    public user: UserService
     ) { }
 
   ngOnInit() {
@@ -37,8 +41,18 @@ export class RegisterPage implements OnInit {
     try{
       const result = await this.afAuth.auth.createUserWithEmailAndPassword(username,password)
       console.log(result)
+
+      this.afstore.doc(`users/${result.user.uid}`).set({
+        username
+      })
+
+      this.user.setUser({
+        username,
+        uid: result.user.uid
+      })
+      
       this.showToast("Success!", "Welcome to the realm!")
-      this.router.navigate(['home'])
+      this.router.navigate(['tabs'])
     } catch(error){
       console.dir(error)
       if(error.code=="auth/weak-password"){
