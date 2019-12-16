@@ -19,7 +19,9 @@
         <div id=gameTime></div>
         <div id=gameAge></div>
       </ion-label></ion-item>
-    <div id=gameDesc></div>
+    <div class="container" [class.show]="show" id=gameDesc>
+    </div>
+    <div class="readMoreLess"><a (click)="show = !show">{{ show ? 'Show less': 'Read More' }}</a></div>
   </ion-card>
   <h1>Reviews</h1>
   <ion-button expand="block" [routerLink]="'/review/' + idInUrl">Leave a review!</ion-button>
