@@ -32,8 +32,10 @@ export class DetailsPage implements OnInit {
       document.getElementById("gameImg").innerHTML = "<img src= '"+gameItem.image+"'>";
       document.getElementById("gameDesc").innerHTML = gameItem.description;
       //More Details (Players, Time, Age) come from these lines below.
-      document.getElementById("gamePlayers").innerHTML = "Players: "+gameItem.minplayers.$.value+" - "+gameItem.maxplayers.$.value;
-      //Sometimes playtime are given as a range, other times it is just a singular number.
+      //Sometimes player count and playtime are given as a range, other times it is just a singular number.
+      if(gameItem.minplayers.$.value == gameItem.maxplayers.$.value)
+        document.getElementById("gamePlayers").innerHTML = "Players: "+gameItem.minplayers.$.value;
+      else document.getElementById("gamePlayers").innerHTML = "Players: "+gameItem.minplayers.$.value+" - "+gameItem.maxplayers.$.value;
       if(gameItem.minplaytime.$.value == gameItem.maxplaytime.$.value)
         document.getElementById("gameTime").innerHTML = "Time: "+gameItem.minplaytime.$.value+" min.";
       else  document.getElementById("gameTime").innerHTML = "Time: "+gameItem.minplaytime.$.value+" - "+gameItem.maxplaytime.$.value+" min.";

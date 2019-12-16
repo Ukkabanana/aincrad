@@ -24,10 +24,10 @@ export class HomePage implements OnInit {
         // JSON converted from XML is not easy to read. This results in multiple-level nested JSON.
         let gameItem = this.result.items.item;
         // In XML provided by the public API, 'name' may or may not be an array.
-        if(gameItem.name[0] != undefined) document.getElementById("gameName").innerHTML = gameItem.name[0].$.value;
-        else document.getElementById("gameName").innerHTML = gameItem.name.$.value;
-        document.getElementById("gameImg").innerHTML = "<img src= '"+gameItem.image+"'>";
-        document.getElementById("gameDesc").innerHTML = gameItem.description;
+        if(gameItem.name[0] != undefined) document.getElementById("recGameName").innerHTML = gameItem.name[0].$.value;
+        else document.getElementById("recGameName").innerHTML = gameItem.name.$.value;
+        document.getElementById("recGameImg").innerHTML = "<img src= '"+gameItem.image+"'>";
+        document.getElementById("recGameDesc").innerHTML = gameItem.description;
       });
     });
     
