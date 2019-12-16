@@ -5,5 +5,15 @@
 </ion-header>
 
 <ion-content>
-
+    <ion-searchbar
+      type="text"
+      placeholder="Search for a game!"
+      [(ngModel)]="searchText"
+      (ngModelChange) ="onInput(searchText)">
+    </ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let i of searchResArr; let j = index" id=item{{j}}>
+      {{i}}
+    </ion-item>
+  </ion-list>
 </ion-content>

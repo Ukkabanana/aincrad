@@ -17,6 +17,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { UserService } from './user.service';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
+import { TransformProvider } from './providers/transform';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -32,6 +34,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
   providers: [
     StatusBar,
     SplashScreen,
+    TransformProvider,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     UserService
   ],
