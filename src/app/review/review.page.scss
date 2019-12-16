@@ -39,6 +39,15 @@ ion-content{
     // height: 100%;
     background-color: white; 
 }
+.rating {
+    ion-icon {
+      color: gray;
+  
+      &.filled {
+        color: #ffb400;
+      }
+    }
+  }
 
 // ::-webkit-scrollbar {
 //     width: 0px;  /* Remove scrollbar space */
