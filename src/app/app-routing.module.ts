@@ -20,6 +20,14 @@ const routes: Routes = [
     path: 'details/:id',
     loadChildren: () => import('./details/details.module').then( m => m.DetailsPageModule)
   },
+  {
+    path: 'review', //review/:id
+    loadChildren: () => import('./review/review.module').then( m => m.ReviewPageModule)
+  },
+  {
+    path: 'review/:id', //review/:id
+    loadChildren: () => import('./review/review.module').then( m => m.ReviewPageModule)
+  },
 
 
  
