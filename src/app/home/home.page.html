@@ -5,10 +5,10 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <h1>Today's Pick</h1>
-    <h2><div id=recGameName></div></h2>
-    <div id=recGameImg></div>
-    <div id=recGameDesc></div>
+  <h1>Today's Pick</h1>
+  <ion-card *ngFor="let i of recGameArr; let j = index" id=item{{j}}>
+    <h2><div id=recGameName>{{i[0]}}</div></h2>
+    <img src={{i[1]}}>
+    <div [innerHTML]="i[2]" id=recGameDesc></div>
   </ion-card>
 </ion-content>
