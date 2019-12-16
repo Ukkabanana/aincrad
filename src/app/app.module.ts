@@ -14,6 +14,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { UserService } from './user.service';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { TransformProvider } from './providers/transform';
 
@@ -26,13 +28,15 @@ import { TransformProvider } from './providers/transform';
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
+    AngularFirestoreModule,
     HttpClientModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
     TransformProvider,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    UserService
   ],
   bootstrap: [AppComponent]
 })

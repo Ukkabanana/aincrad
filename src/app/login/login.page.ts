@@ -4,6 +4,7 @@ import { auth } from 'firebase/app'
 import { ToastController } from '@ionic/angular' 
 import { AlertController } from '@ionic/angular'
 import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginPage implements OnInit {
     public afAuth: AngularFireAuth,
     public toastCtrl: ToastController,
     public alertCtrl: AlertController,
-    public router: Router
+    public router: Router,
+    public user: UserService
     ) { }
 
   ngOnInit() {
@@ -28,8 +30,15 @@ export class LoginPage implements OnInit {
     const { username, password } = this
     try{
       const result = await this.afAuth.auth.signInWithEmailAndPassword(username,password)
+      if(result.user){
+        this.user.setUser({
+          username,
+          uid: result.user.uid
+        })
+      }
       this.showToast("Welcome back to the realm !")
-      this.router.navigate(['home'])
+      this.router.navigate(['tabs'])
+      
     } catch(error){
       console.dir(error)
       if(error.code == "auth/user-not-found"){
