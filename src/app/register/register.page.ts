@@ -50,8 +50,8 @@ export class RegisterPage implements OnInit {
       this.afstore.collection("users").doc(result.user.uid).set({
         email: username,
         uid: result.user.uid,
-        played: [""],
-        posts: [""],
+        played: [],
+        posts: [],
     })
       
       this.showToast("Success!", "Welcome to the realm!")
@@ -59,7 +59,7 @@ export class RegisterPage implements OnInit {
     } catch(error){
       console.dir(error)
       if(error.code=="auth/weak-password"){
-        console.log("Your password is too weak. It should be at least 67 characters")
+        console.log("Your password is too weak. It should be at least 6 characters")
         this.showAlert("Error", error.message)
       }
     }

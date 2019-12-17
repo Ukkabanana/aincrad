@@ -13,7 +13,7 @@
       <ion-card-content *ngFor="let played of (userPlayed | async)?.played">
           <ion-item>
               <ion-icon name="logo-game-controller-a"></ion-icon>
-              <ion-label>{{ played.gameid }}</ion-label>
+              <ion-label>{{ played.gameName }}</ion-label>
           </ion-item>
       </ion-card-content>
     </ion-card>
@@ -28,7 +28,7 @@
             <ion-item>
                 <ion-icon name="logo-game-controller-a"></ion-icon>
                 <ion-label>Game ID: </ion-label>
-                <p>{{ posts.gameid }}</p>
+                <p>{{ posts.gameName }}</p>
             </ion-item>
             <ion-item>
                 <ion-icon name="chatbubbles"></ion-icon>
