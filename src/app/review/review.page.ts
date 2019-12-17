@@ -3,11 +3,14 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { UserService } from '../user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { StarRatingComponent } from 'ng-starrating';
-import { Observable } from 'rxjs'
 
 import { ActivatedRoute } from '@angular/router';
+
 import { firestore } from 'firebase';
 import { BoardgameData } from '../services/data.service';
+
+import { NavController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-review',
@@ -30,7 +33,11 @@ export class ReviewPage implements OnInit {
     public user: UserService,
     public http: HttpClientModule,
     private route:ActivatedRoute,
+
     private bgData: BoardgameData,
+
+    public navCtrl: NavController
+
   ) { }
 
   ngOnInit() {
@@ -58,6 +65,7 @@ export class ReviewPage implements OnInit {
         gameid: this.idInUrl,
         rating: rate
     })
+
     console.log("added to col: review")
 
     this.afstore.collection("users").doc(uid).update({
@@ -72,12 +80,17 @@ export class ReviewPage implements OnInit {
       })
     })
     console.log("added to col: users")
+
+
+    this.navCtrl.pop();
+
   }
 
   updateStar($event:{oldValue:number, newValue:number, starRating:StarRatingComponent}) {
     this.rating=$event.newValue.toString();
     console.log(this.rating)
   }
+
   getGame(){
     this.idInUrl = this.route.snapshot.paramMap.get('id');
     console.log(this.idInUrl);  //FOR DEBUGGING
