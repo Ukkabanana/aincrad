@@ -1,5 +1,7 @@
 .container {
-    font-size: 16px;
+    font-family:'Manrope-Regular';
+    font-style: normal;
+    font-size: 12px;
     line-height: 16px;
     height: 368px;
     overflow: hidden;
@@ -11,4 +13,21 @@
 .readMoreLess {
     text-align: center;
     cursor:pointer;
+    font-family:'Manrope-Regular';
+    font-style: normal;
+}
+.background{
+    --background: #303030;
+}
+.title{
+    font-family:'Manrope-ExtraBold';
+    font-style: normal;
+    font-size: 28px;
+    text-align: start;
+    color: white;   
+    // text-shadow: 3px 0px 0px rgba(253, 185, 9, 0.8);
+}
+ion-label{
+    font-family:'Manrope-Medium';
+    font-style: normal;
 }

@@ -1,29 +1,33 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Details</ion-title>
+    <ion-title id="gameName"></ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="background">
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-  <ion-card>
-    <h1><div id=gameName></div></h1>
+  <ion-card color="light">
+    <ion-card-header style="display: flex;">
+        <ion-card-title>Details</ion-card-title>
+    </ion-card-header>
     <div id=gameImg></div>
-      <ion-item><ion-label>
-        <div id=gamePlayers></div>
-        <div id=gameTime></div>
-        <div id=gameAge></div>
-      </ion-label></ion-item>
-    <div class="container" [class.show]="show" id=gameDesc>
-    </div>
+    <ion-card-content>
+        <ion-item><ion-label>
+            <div id=gamePlayers></div>
+            <div id=gameTime></div>
+            <div id=gameAge></div>
+          </ion-label></ion-item>
+        <div class="container" [class.show]="show" id=gameDesc>
+        </div>
+    </ion-card-content>
     <div class="readMoreLess"><a (click)="show = !show">{{ show ? 'Show less': 'Read More' }}</a></div>
   </ion-card>
-  <h1>Reviews</h1>
+  <h1 class="title">Reviews</h1>
   <ion-button expand="block" [routerLink]="'/review/' + idInUrl">Leave a review!</ion-button>
   <div id=gameReview>
     <ion-card *ngFor="let i of showReviewArr; let j = index" id=item{{j}}>
