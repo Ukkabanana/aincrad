@@ -4,16 +4,18 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="background">
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-  <h1>Today's Pick</h1>
-  <ion-card *ngFor="let game of recGameArr">
-    <h2><a id="recGameName" [routerLink]="'/details/'+game.gameId">{{game.name}}</a></h2>
+  <h1 class="title" id="background-image">&nbsp;Today's Pick</h1>
+  <ion-card color="light" *ngFor="let game of recGameArr">
+    <ion-card-header>
+        <ion-card-title><a id="recGameName" [routerLink]="'/details/'+game.gameId">{{game.name}}</a></ion-card-title>
+    </ion-card-header>
     <img src={{game.image}} [routerLink]="'/details/'+game.gameId">
-    <div [innerHTML]="game.content" class="container" [class.show]="game.visible">
-    </div>
+    <ion-card-content [innerHTML]="game.content" class="container" [class.show]="game.visible">
+    </ion-card-content>
     <div class="readMoreLess"><a (click)="game.visible = !game.visible">{{ game.visible ? 'Show less': 'Read More' }}</a></div>
   </ion-card>
 </ion-content>
