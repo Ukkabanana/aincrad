@@ -141,7 +141,6 @@ export class DetailsPage implements OnInit {
   NoShowMoreIfContentFit() {
     var gameDescElmt = document.getElementById("gameDesc");
     gameDescElmt.className = 'show'
-    console.log("gameDesc height: "+gameDescElmt.offsetHeight);
     if(gameDescElmt.offsetHeight <= 496){
       gameDescElmt.className = 'show'
       document.getElementById("readMoreLess").innerHTML =  "";
