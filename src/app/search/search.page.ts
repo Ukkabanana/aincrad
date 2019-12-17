@@ -30,15 +30,16 @@ export class SearchPage implements OnInit {
         //Show search results
         if(Array.isArray(gameItem)){
           for (let i in gameItem) {
-            //console.log(gameItem[i].name.$.value); //FOR DEBUGGING
-            this.searchResArr.push([gameItem[i].name.$.value, gameItem[i].$.id]);
+            //console.log(gameItem[i]); //FOR DEBUGGING
+            if(gameItem[i].yearpublished != undefined) this.searchResArr.push([gameItem[i].name.$.value, gameItem[i].$.id, gameItem[i].yearpublished.$.value]);
+            else this.searchResArr.push([gameItem[i].name.$.value, gameItem[i].$.id]);
           }
         }
         //If there is only one result to be shown, item will not be an array.
         else if(gameItem != undefined){
-            //console.log(gameItem.name.$.value); //FOR DEBUGGING
-            this.searchResArr.push([gameItem.name.$.value, gameItem.$.id]);
-            //console.log([gameItem.name.$.value, gameItem.$.id]); //FOR DEBUGGING
+            //console.log(gameItem); //FOR DEBUGGING
+            if(gameItem.yearpublished != undefined) this.searchResArr.push([gameItem.name.$.value, gameItem.$.id, gameItem.yearpublished.$.value]);
+            else this.searchResArr.push([gameItem.name.$.value, gameItem.$.id]);
         }
       });
       
