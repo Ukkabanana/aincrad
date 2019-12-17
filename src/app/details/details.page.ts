@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BoardgameData } from '../services/data.service';
+import { AlertController } from '@ionic/angular'
 
 import { AngularFirestore } from '@angular/fire/firestore';
 import { UserService } from '../user.service';
+import { firestore } from 'firebase';
 
 @Component({
   selector: 'app-details',
@@ -14,13 +16,15 @@ export class DetailsPage implements OnInit {
 
   private idInUrl: string;
   result:any;
+  public gameName: string;
 
   showReviewArr: Array<any>;
 
   constructor(private route:ActivatedRoute, 
     private bgData: BoardgameData, 
     public afs: AngularFirestore,
-    public user: UserService
+    public user: UserService,
+    public alertCtrl: AlertController,
   ) {}
 
   ngOnInit() {
@@ -35,9 +39,13 @@ export class DetailsPage implements OnInit {
       // JSON converted from XML is not easy to read. This results in multiple-level nested JSON.
       let gameItem = this.result.items.item;
       // In XML provided by the public API, 'name' may or may not be an array.
-      if(gameItem.name[0] != undefined) 
+      if(gameItem.name[0] != undefined){
         document.getElementById("gameName").innerHTML = gameItem.name[0].$.value;
-      else  document.getElementById("gameName").innerHTML = gameItem.name.$.value;
+        this.gameName = gameItem.name[0].$.value;
+      } else  {
+        document.getElementById("gameName").innerHTML = gameItem.name.$.value;
+        this.gameName = gameItem.name.$.value;
+      }
       document.getElementById("gameImg").innerHTML = "<img src= '"+gameItem.image+"'>";
       document.getElementById("gameDesc").innerHTML = gameItem.description;
       //More Details (Players, Time, Age) come from these lines below.
@@ -97,6 +105,35 @@ export class DetailsPage implements OnInit {
     })
     //Need another variable because of different access level.
     this.showReviewArr = dataArr;
+  }
+
+  async addGame(){
+    //Get ID from URL
+    this.idInUrl = this.route.snapshot.paramMap.get('id');
+    console.log(this.idInUrl);  //FOR DEBUGGING
+
+    
+    const uid = this.user.getUID()
+    console.log("UID: ", uid)
+
+    console.log("UID: "+uid,"Played this game.")
+  
+    this.afs.collection("users").doc(this.user.getUID()).update({
+        played: firestore.FieldValue.arrayUnion({
+          user: uid,
+          gameName: this.gameName,
+        })  
+    })
+    await this.showAlert("OOWEE!","You have played this game.")
+  }
+
+  async showAlert(header: string, message: string){
+    const alert = await this.alertCtrl.create({
+      header,
+      message,
+      buttons: ['Ok']
+    })
+    await alert.present()
   }
 
 }
