@@ -25,7 +25,7 @@
         <div class="container" [class.show]="show" id=gameDesc>
         </div>
     </ion-card-content>
-    <div class="readMoreLess"><a (click)="show = !show">{{ show ? 'Show less': 'Read More' }}</a></div>
+    <div class="readMoreLess" id="readMoreLess"><a (click)="show = !show">{{ show ? 'Show less': 'Read More' }}</a></div>
   </ion-card>
   <h1 class="title">Reviews</h1>
   <ion-button expand="block" [routerLink]="'/review/' + idInUrl">Leave a review!</ion-button>

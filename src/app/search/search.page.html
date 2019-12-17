@@ -13,7 +13,7 @@
     </ion-searchbar>
   <ion-list>
     <ion-item *ngFor="let i of searchResArr; let j = index" id=item{{j}} [routerLink]="'/details/' + i[1]">
-        {{i[0]}}
+      {{i[0]}}<p class="gameYear" *ngIf="i.length > 2">&nbsp;({{i[2]}})&nbsp;</p>
     </ion-item>
   </ion-list>
 </ion-content>
