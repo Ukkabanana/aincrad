@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 import { firestore } from 'firebase';
 import { BoardgameData } from '../services/data.service';
 
-import { NavController } from '@ionic/angular';
+import { NavController, ToastController } from '@ionic/angular';
 
 
 @Component({
@@ -33,9 +33,8 @@ export class ReviewPage implements OnInit {
     public user: UserService,
     public http: HttpClientModule,
     private route:ActivatedRoute,
-
+    public toastCtrl: ToastController,
     private bgData: BoardgameData,
-
     public navCtrl: NavController
 
   ) { }
@@ -79,6 +78,7 @@ export class ReviewPage implements OnInit {
         rating: rate
       })
     })
+    this.showToast("Awesome!", "Thanks for your review.")
     console.log("added to col: users")
 
 
@@ -110,6 +110,17 @@ export class ReviewPage implements OnInit {
         this.gameName = gameItem.name.$.value;
       }
     });
+  }
+
+  async showToast(header: string,message: string){
+    const toast = await this.toastCtrl.create({
+      header,
+      message,
+      position: 'bottom',
+      duration: 1500,
+      cssClass: "toast-green",
+    })
+    await toast.present()
   }
 
   /*

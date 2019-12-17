@@ -6,20 +6,23 @@
 
 <ion-content class ="background">
   <div>
-      <h1 id="text-dark">Sign In</h1>
-      <ion-list>
-        <ion-item>
-          <ion-label id="text-dark-light" position = "floating">Username</ion-label>
-          <ion-input type="text" [(ngModel)]="username"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label id="text-dark-light" position = "floating">Password</ion-label>
-            <ion-input type="password" [(ngModel)]="password"></ion-input>
-          </ion-item>
-      </ion-list> <!--input for Username and password-->
+      <h1 id="text-dark">&nbsp;Sign In</h1>
+      <!-- <ion-card> -->
+          <ion-list fill="clear">
+              <ion-item>
+                <ion-label id="text-dark-light" position = "floating">Username</ion-label>
+                <ion-input type="text" [(ngModel)]="username"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label id="text-dark-light" position = "floating">Password</ion-label>
+                  <ion-input type="password" [(ngModel)]="password"></ion-input>
+                </ion-item>
+            </ion-list> <!--input for Username and password-->
+      <!-- </ion-card> -->
+      
     
-      <ion-button class="orange-button" id="text-white" fill="clear" (click)="login()">Sign in</ion-button>
-      <ion-button class="dark-button" id="text-white" fill="clear" routerLink="/register">Sign up</ion-button>
+      <ion-button id="pink-red" fill="clear" shape="round" (click)="login()">Sign in</ion-button>
+      <ion-button color="dark" id="text-white" fill="solid" shape="round" routerLink="/register">Sign up</ion-button>
 
   </div>
 

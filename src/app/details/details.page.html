@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title id="gameName"></ion-title>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="home"></ion-back-button>
+      <ion-back-button id="salmon-title" defaultHref="home"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -13,11 +13,11 @@
   </ion-refresher>
   <ion-card color="light">
     <ion-card-header style="display: flex;">
-        <ion-card-title>Details</ion-card-title>
+        <ion-card-title id="salmon-title">Details</ion-card-title>
     </ion-card-header>
     <div id=gameImg></div>
     <ion-card-content>
-        <ion-item><ion-label>
+        <ion-item id="salmon"><ion-label>
             <div id=gamePlayers></div>
             <div id=gameTime></div>
             <div id=gameAge></div>
@@ -28,16 +28,22 @@
     <div class="readMoreLess" id="readMoreLess"><a (click)="show = !show">{{ show ? 'Show less': 'Read More' }}</a></div>
   </ion-card>
   <h1 class="title">Reviews</h1>
-  <ion-button expand="block" [routerLink]="'/review/' + idInUrl">Leave a review!</ion-button>
+  <ion-button id="salmon" expand="block" [routerLink]="'/review/' + idInUrl">Leave a review!</ion-button>
   <div id=gameReview>
-    <ion-card *ngFor="let i of showReviewArr; let j = index" id=item{{j}}>
-        <div>{{i[0]}}</div>
-        {{i[2]}}<br>
-      <i>Played for {{i[3]}} minutes with {{i[4]}} player(s).</i>
+    <ion-card color="light" *ngFor="let i of showReviewArr; let j = index" id=item{{j}}>
+      <!-- <ion-card-header>
+          
+      </ion-card-header> -->
+      <ion-card-content class="reviews">
+          <div>{{i[0]}}</div>
+          {{i[2]}}<br>
+          <i>Played for {{i[3]}} minutes with {{i[4]}} player(s).</i>
+      </ion-card-content>
+        
     </ion-card>
   </div>
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-      <ion-fab-button (click)="addGame()">
+  <ion-fab vertical="top" horizontal="end" slot="fixed" >
+      <ion-fab-button id="salmon" (click)="addGame()">
         <ion-icon name="play"></ion-icon>
       </ion-fab-button>
   </ion-fab>

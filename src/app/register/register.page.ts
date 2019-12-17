@@ -62,6 +62,10 @@ export class RegisterPage implements OnInit {
         console.log("Your password is too weak. It should be at least 6 characters")
         this.showAlert("Error", error.message)
       }
+      if(error.code=="auth/email-already-in-use"){
+        console.log("Email already in used.")
+        this.showAlert("Error", error.message)
+      }
     }
 
 
@@ -73,7 +77,8 @@ export class RegisterPage implements OnInit {
        header,
        message,
        position: 'bottom',
-       duration: 2000
+       duration: 2000,
+       cssClass: "toast-purple",
      })
      await toast.present()
   }

@@ -25,6 +25,33 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
+.toast-purple{
+    --background:#3D2CE8;
+    --background-activated:rgba(61, 44, 232, 0.7);
+    --background-focused:rgba(61, 44, 232, 0.7);
+    --background-hover: rgba(61, 44, 232, 0.7);
+    font-family:'Manrope-ExtraBold';
+    font-style: normal;
+    color: white;
+}
+.toast-pink{
+    --background:#E70066;
+    --background-activated: #C80058;
+    --background-focused: #C80058;
+    --background-hover:  #C80058;
+    font-family:'Manrope-ExtraBold';
+    font-style: normal;
+    color: white;
+}
+.toast-green{
+    --background:#22EAC7;
+    --background-activated:rgba(34, 234, 199, 0.8);
+    --background-focused:rgba(34, 234, 199, 0.8);
+    --background-hover: rgba(34, 234, 199, 0.8);
+    font-family:'Manrope-ExtraBold';
+    font-style: normal;
+    color: black;
+}
 // :root * {
 //     &::-webkit-scrollbar {
 //       width: 12px;
