@@ -4,7 +4,18 @@
     letter-spacing: 0.05em;
     text-align: center;
 }
+.title{
+    font-family:'Manrope-ExtraBold';
+    font-style: normal;
+    font-size: 32px;
+    text-align: start;
+    color: #222428;
+    
+    // text-shadow: 3px 0px 0px rgba(253, 185, 9, 0.8);
+}
 .container {
+    font-family:'Manrope-Regular';
+    font-style: normal;
     font-size: 16px;
     line-height: 16px;
     height: 64px;
@@ -15,10 +26,23 @@
     height: auto;
 }
 .readMoreLess {
+    font-family:'Manrope-ExtraBold';
+    font-style: normal;
     text-align: center;
     cursor:pointer;
+    
 }
 #recGameName {
+    font-family:'Manrope-Regular';
+    font-style: normal;
     text-decoration:none;
     color:black; 
+}
+.background{
+    // display: flex;
+    --background: url(../../assets/home-fix.svg) no-repeat center center / cover; 
+    // -webkit-background-size: cover;
+    // -moz-background-size: cover;
+    // background-size: cover;
+    
 }

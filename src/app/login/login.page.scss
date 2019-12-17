@@ -39,3 +39,11 @@
     letter-spacing: 0.05em;
     text-align: center;
 }
+.background{
+    // display: flex;
+    --background: url(../../assets/background.svg) no-repeat center center / cover; 
+    // -webkit-background-size: cover;
+    // -moz-background-size: cover;
+    // background-size: cover;
+    
+}
