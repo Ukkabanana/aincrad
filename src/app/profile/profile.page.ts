@@ -10,7 +10,7 @@ import { UserService } from '../user.service';
 export class ProfilePage implements OnInit {
   userPost: any;
   userPlayed: any;
-
+  userEmail: any;
   constructor(
     private afs: AngularFirestore,
     private user: UserService,
@@ -18,9 +18,25 @@ export class ProfilePage implements OnInit {
     const account = afs.collection("users").doc(this.user.getUID())
     this.userPost = account.valueChanges()
     this.userPlayed = account.valueChanges()
+    
+    // console.log("SEE:",account.valueChanges())
    }
 
   ngOnInit() {
+    this.afs.collection("users").doc(this.user.getUID()).valueChanges().subscribe(queriedItems => {
+      console.log(queriedItems.email);
+      // this.userEmail = queriedItems.email;
+    });
+    this.userEmail = this.getEmail()
+    console.log("userEmail: ", this.getEmail())
+    
+  }
+
+  getEmail(){
+    this.afs.collection("users").doc(this.user.getUID()).valueChanges().subscribe(queriedItems => {
+      console.log("Returning: ",queriedItems.email);
+      return queriedItems.email;
+  });
   }
 
 }

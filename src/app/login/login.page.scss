@@ -10,25 +10,25 @@
     border-radius: 50px;
 }
 #text-white{
-    font-family: 'Cairo', sans-serif;
+    font-family:'Manrope-ExtraBold';
     font-style: normal;
     font-weight: 700;
     color: white;
 }
 #text-white-light{
-    font-family: 'Cairo', sans-serif;
+    font-family:'Manrope-ExtraBold';
     font-style: normal;
     font-weight: 350;
     color: white;
 }
 #text-dark{
-    font-family: 'Cairo', sans-serif;
+    font-family:'Manrope-ExtraBold';
     font-style: normal;
     font-weight: 700;
     color: #222428;
 }
 #text-dark-light{
-    font-family: 'Cairo', sans-serif;
+    font-family:'Manrope-ExtraBold';
     font-style: normal;
     font-weight: 350;
     color: #222428;
@@ -41,9 +41,21 @@
 }
 .background{
     // display: flex;
-    --background: url(../../assets/background.svg) no-repeat center center / cover; 
+    --background: url(../../assets/login-final.svg) no-repeat center center / cover; 
     // -webkit-background-size: cover;
     // -moz-background-size: cover;
     // background-size: cover;
     
+}
+#pink-red{
+    --background:#E70066;
+    --background-activated: #C80058;
+    --background-focused: #C80058;
+    --background-hover: #C80058;
+    --color-activated: #F2F2F2;
+    --color-focused: #F2F2F2;
+    --color-hover: #F2F2F2;
+    font-family:'Manrope-ExtraBold';
+    font-style: normal;
+    color: white;
 }

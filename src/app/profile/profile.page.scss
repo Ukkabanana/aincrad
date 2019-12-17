@@ -4,3 +4,24 @@
     letter-spacing: 0.05em;
     text-align: center;
 }
+.background{
+    --background: url(../../assets/profile-background.svg) no-repeat center center / cover;
+}
+.purple-blue{
+    --background:#3D2CE8;
+    --background-activated:rgba(61, 44, 232, 0.7);
+    --background-focused:rgba(61, 44, 232, 0.7);
+    --background-hover: rgba(61, 44, 232, 0.7);
+    font-family:'Manrope-ExtraBold';
+    font-style: normal;
+    color: white;
+}
+.purple-blue-text{
+    --background:#3D2CE8;
+    --background-activated:rgba(61, 44, 232, 0.7);
+    --background-focused:rgba(61, 44, 232, 0.7);
+    --background-hover: rgba(61, 44, 232, 0.7);
+    font-family:'Manrope-ExtraBold';
+    font-style: normal;
+    color: #3D2CE8;
+}
