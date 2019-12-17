@@ -12,8 +12,8 @@
   <ion-card *ngFor="let game of recGameArr">
     <h2><a id="recGameName" [routerLink]="'/details/'+game.gameId">{{game.name}}</a></h2>
     <img src={{game.image}} [routerLink]="'/details/'+game.gameId">
-    <div [innerHTML]="game.content" class="container" [class.show]="game.visible" id=gameDesc>
+    <div [innerHTML]="game.content" class="container" [class.show]="game.visible">
     </div>
-    <div class="readMoreLess" id="readMoreLess"><a (click)="game.visible = !game.visible">{{ game.visible ? 'Show less': 'Read More' }}</a></div>
+    <div class="readMoreLess"><a (click)="game.visible = !game.visible">{{ game.visible ? 'Show less': 'Read More' }}</a></div>
   </ion-card>
 </ion-content>

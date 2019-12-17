@@ -63,20 +63,9 @@ export class HomePage implements OnInit {
           })
           //Source: https://stackoverflow.com/questions/53372022/how-will-achive-content-show-more-and-show-less-in-angular-6
           //Source: https://stackblitz.com/edit/angular-multi-select-eg?file=src%2Fapp%2Fapp.component.ts
-          this.NoShowMoreIfContentFit();
         });
       }
     });
-  }
-
-  NoShowMoreIfContentFit() {
-    var gameDescElmt = document.getElementById("gameDesc");
-    gameDescElmt.className = 'show'
-    if(gameDescElmt.offsetHeight <= 496){
-      gameDescElmt.className = 'show'
-      document.getElementById("readMoreLess").innerHTML =  "";
-    }
-    else gameDescElmt.className = 'container'
   }
 
 }
