@@ -57,8 +57,6 @@ export class DetailsPage implements OnInit {
         document.getElementById("gameTime").innerHTML = "Time: "+gameItem.minplaytime.$.value+" min.";
       else  document.getElementById("gameTime").innerHTML = "Time: "+gameItem.minplaytime.$.value+" - "+gameItem.maxplaytime.$.value+" min.";
       document.getElementById("gameAge").innerHTML =  "Age: "+gameItem.minage.$.value+"+";
-
-      this.NoShowMoreIfContentFit();
     });
   }
 
@@ -136,16 +134,6 @@ export class DetailsPage implements OnInit {
       buttons: ['Ok']
     })
     await alert.present()
-  }
-
-  NoShowMoreIfContentFit() {
-    var gameDescElmt = document.getElementById("gameDesc");
-    gameDescElmt.className = 'show'
-    if(gameDescElmt.offsetHeight <= 496){
-      gameDescElmt.className = 'show'
-      document.getElementById("readMoreLess").innerHTML =  "";
-    }
-    else gameDescElmt.className = 'container'
   }
 
 }
