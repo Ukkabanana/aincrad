@@ -6,6 +6,8 @@ import { StarRatingComponent } from 'ng-starrating';
 import { Observable } from 'rxjs'
 
 import { ActivatedRoute } from '@angular/router';
+import { firestore } from 'firebase';
+import { BoardgameData } from '../services/data.service';
 
 @Component({
   selector: 'app-review',
@@ -14,20 +16,25 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ReviewPage implements OnInit {
 
-  comment: string
-  players: number
-  time: number
+  comment: string;
+  players: number;
+  time: number;
   rating: string = '5';
   private idInUrl: string;
+  public gameName: string;
+  result:any;
+
 
   constructor(
     public afstore: AngularFirestore,
     public user: UserService,
     public http: HttpClientModule,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    private bgData: BoardgameData,
   ) { }
 
   ngOnInit() {
+    this.getGame();
   }
 
   async addReview(){
@@ -47,14 +54,49 @@ export class ReviewPage implements OnInit {
         group: players,
         duration: time,
         user: uid,
+        gameName: this.gameName,
         gameid: this.idInUrl,
         rating: rate
     })
+    console.log("added to col: review")
+
+    this.afstore.collection("users").doc(uid).update({
+      posts: firestore.FieldValue.arrayUnion({
+        feedback: comment,
+        group: players,
+        duration: time,
+        user: uid,
+        gameName: this.gameName,
+        gameid: this.idInUrl,
+        rating: rate
+      })
+    })
+    console.log("added to col: users")
   }
 
   updateStar($event:{oldValue:number, newValue:number, starRating:StarRatingComponent}) {
     this.rating=$event.newValue.toString();
     console.log(this.rating)
+  }
+  getGame(){
+    this.idInUrl = this.route.snapshot.paramMap.get('id');
+    console.log(this.idInUrl);  //FOR DEBUGGING
+
+    //Get data of that game
+    this.bgData.getApi(this.idInUrl).subscribe(data => {
+      this.result = data;
+      //console.log(data);  //FOR DEBUGGING
+      // JSON converted from XML is not easy to read. This results in multiple-level nested JSON.
+      let gameItem = this.result.items.item;
+      // In XML provided by the public API, 'name' may or may not be an array.
+      if(gameItem.name[0] != undefined){
+        document.getElementById("gameName").innerHTML = gameItem.name[0].$.value;
+        this.gameName = gameItem.name[0].$.value;
+      } else  {
+        document.getElementById("gameName").innerHTML = gameItem.name.$.value;
+        this.gameName = gameItem.name.$.value;
+      }
+    });
   }
 
   /*
