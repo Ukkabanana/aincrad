@@ -24,19 +24,11 @@ export class ProfilePage implements OnInit {
 
   ngOnInit() {
     this.afs.collection("users").doc(this.user.getUID()).valueChanges().subscribe(queriedItems => {
-      console.log(queriedItems.email);
-      // this.userEmail = queriedItems.email;
+      let query:any = queriedItems;
+      console.log(query.email);
+      this.userEmail = query.email;
     });
-    this.userEmail = this.getEmail()
-    console.log("userEmail: ", this.getEmail())
     
-  }
-
-  getEmail(){
-    this.afs.collection("users").doc(this.user.getUID()).valueChanges().subscribe(queriedItems => {
-      console.log("Returning: ",queriedItems.email);
-      return queriedItems.email;
-  });
   }
 
 }
