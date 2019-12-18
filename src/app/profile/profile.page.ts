@@ -24,19 +24,23 @@ export class ProfilePage implements OnInit {
 
   ngOnInit() {
     this.afs.collection("users").doc(this.user.getUID()).valueChanges().subscribe(queriedItems => {
-      console.log(queriedItems.email);
-      // this.userEmail = queriedItems.email;
+      let query:any = queriedItems; //this is the one that transform queryItem to be usable.
+      console.log(query.email);
+      const account = this.afs.collection("users").doc(this.user.getUID())
+      this.userPost = account.valueChanges()
+      this.userPlayed = account.valueChanges()
+      this.userEmail = query.email;
     });
-    this.userEmail = this.getEmail()
-    console.log("userEmail: ", this.getEmail())
-    
   }
 
-  getEmail(){
-    this.afs.collection("users").doc(this.user.getUID()).valueChanges().subscribe(queriedItems => {
-      console.log("Returning: ",queriedItems.email);
-      return queriedItems.email;
-  });
+  doRefresh(refresher) {
+    console.log('Refreshing...');
+
+    setTimeout(() => {
+      this.ngOnInit();
+      console.log('Refreshed!');
+      refresher.target.complete();
+    }, 500);
   }
 
 }
