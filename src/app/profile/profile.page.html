@@ -4,25 +4,22 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="background">
-  <!-- <ion-card class="purple-blue">
-      <ion-card-header>
-        <ion-card-title>Hello,</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-          <ion-item>
-              <ion-icon name="contact"></ion-icon>
-              <ion-label *ngIf="userEmail">{{userEmail}}</ion-label>
-          </ion-item>
-      </ion-card-content>
-  </ion-card> -->
+<ion-content class="background" >
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+        pullingIcon="arrow-dropdown"
+        pullingText="Pull to refresh"
+        refreshingSpinner="circles"
+        refreshingText="Refreshing...">
+      </ion-refresher-content>
+      </ion-refresher>
   <div>
-    <ion-card color="light">
+    <ion-card class="purple-blue">
       <ion-card-header>
-        <ion-card-title>User</ion-card-title>
+        <ion-card-title style="color:white;">Hello,</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <ion-item>
+        <ion-item  class="round-box" lines="none">
           <ion-icon name="mail"></ion-icon>
           <ion-label>{{ userEmail }}</ion-label>
         </ion-item>
@@ -35,7 +32,7 @@
         <ion-card-title>Played Games</ion-card-title>
       </ion-card-header>
       <ion-card-content *ngFor="let played of (userPlayed | async)?.played">
-          <ion-item>
+          <ion-item class="round-box" lines="none">
               <ion-icon name="logo-game-controller-a"></ion-icon>
               <ion-label>{{ played.gameName }}</ion-label>
           </ion-item>
@@ -49,27 +46,27 @@
       </ion-card-header>
       <ion-card-content  *ngFor="let posts of (userPost | async)?.posts">
         <ion-list>
-            <ion-item>
+            <ion-item  class="round-box" lines="none"> 
                 <ion-icon name="logo-game-controller-a"></ion-icon>
                 <ion-label>Game ID: </ion-label>
                 <p>{{ posts.gameName }}</p>
             </ion-item>
-            <ion-item>
+            <ion-item  class="round-box" lines="none">
                 <ion-icon name="chatbubbles"></ion-icon>
                 <ion-label>Feedback: </ion-label>
                 <p>{{ posts.feedback }}</p>
             </ion-item>
-            <ion-item>
+            <ion-item  class="round-box" lines="none">
                 <ion-icon name="time"></ion-icon>
                 <ion-label>Duration: </ion-label>
                 <p>{{ posts.duration }}</p>
             </ion-item>
-            <ion-item>
+            <ion-item  class="round-box" lines="none">
                 <ion-icon name="contacts"></ion-icon>
                 <ion-label>Number of Players: </ion-label>
                 <p>{{ posts.group }}</p>
             </ion-item>
-            <ion-item>
+            <ion-item  class="round-box" lines="none">
                 <ion-icon name="star-half"></ion-icon>
                 <ion-label>Rating: </ion-label>
                 <p>{{ posts.rating }}</p>
