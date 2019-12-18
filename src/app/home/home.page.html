@@ -8,7 +8,7 @@
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-  <h1 class="title" id="background-image">&nbsp;Today's Pick</h1>
+  <h1 class="title" id="background-image">Today's Pick</h1>
   <ion-card color="light" *ngFor="let game of recGameArr">
     <ion-card-header>
         <ion-card-title><a id="recGameName" [routerLink]="'/details/'+game.gameId">{{game.name}}</a></ion-card-title>
