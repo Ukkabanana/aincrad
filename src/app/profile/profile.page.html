@@ -4,9 +4,20 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="background">
+    <!-- <ion-card class="purple-blue">
+        <ion-card-header>
+          <ion-card-title>Hello,</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-item>
+                <ion-icon name="contact"></ion-icon>
+                <ion-label *ngIf="userEmail">{{userEmail}}</ion-label>
+            </ion-item>
+        </ion-card-content>
+    </ion-card> -->
   <div>
-    <ion-card>
+    <ion-card color="light">
       <ion-card-header>
         <ion-card-title>Played Games</ion-card-title>
       </ion-card-header>
@@ -19,12 +30,12 @@
     </ion-card>
   </div>
   <div>
-    <ion-card>
+    <ion-card color="light">
       <ion-card-header>
         <ion-card-title>Your Reviews</ion-card-title>
       </ion-card-header>
-      <ion-card-content>
-        <ion-list  *ngFor="let posts of (userPost | async)?.posts" >
+      <ion-card-content  *ngFor="let posts of (userPost | async)?.posts">
+        <ion-list>
             <ion-item>
                 <ion-icon name="logo-game-controller-a"></ion-icon>
                 <ion-label>Game ID: </ion-label>
@@ -36,12 +47,12 @@
                 <p>{{ posts.feedback }}</p>
             </ion-item>
             <ion-item>
-                <ion-icon name="logo-game-controller-a"></ion-icon>
+                <ion-icon name="time"></ion-icon>
                 <ion-label>Duration: </ion-label>
                 <p>{{ posts.duration }}</p>
             </ion-item>
             <ion-item>
-                <ion-icon name="logo-game-controller-a"></ion-icon>
+                <ion-icon name="contacts"></ion-icon>
                 <ion-label>Number of Players: </ion-label>
                 <p>{{ posts.group }}</p>
             </ion-item>
@@ -54,7 +65,7 @@
       </ion-card-content>
     </ion-card>
   </div>
-    <ion-button expand="block" [routerLink]="'/login/'">Sign Out</ion-button>
+    <ion-button class="purple-blue" fill="clear"  shape="round" expand="block" [routerLink]="'/login/'">Sign Out</ion-button>
 </ion-content>
 
 <!-- <ion-card>

@@ -10,31 +10,31 @@
     border-radius: 50px;
 }
 #text-white{
-    font-family: 'Cairo', sans-serif;
+    font-family:'Manrope-ExtraBold';
     font-style: normal;
     font-weight: 700;
     color: white;
 }
 #text-white-light{
-    font-family: 'Cairo', sans-serif;
+    font-family:'Manrope-ExtraBold';
     font-style: normal;
     font-weight: 350;
     color: white;
 }
 #text-dark{
-    font-family: 'Cairo', sans-serif;
+    font-family:'Manrope-ExtraBold';
     font-style: normal;
     font-weight: 700;
     color: #222428;
 }
 #text-dark-light{
-    font-family: 'Cairo', sans-serif;
+    font-family:'Manrope-ExtraBold';
     font-style: normal;
     font-weight: 350;
     color: #222428;
 }
 .color-gradient-header{
-    font-family: 'Cairo', sans-serif;
+    font-family:'Manrope-ExtraBold';
     font-style: normal;
     font-weight: 900;
     // color: linear-gradient(#F5AF19 0%, #F12711 113.31%);
@@ -47,4 +47,22 @@
     font-style: normal;
     letter-spacing: 0.05em;
     text-align: center;
+}
+.purple-blue{
+    --background:#3D2CE8;
+    --background-activated:rgba(61, 44, 232, 0.7);
+    --background-focused:rgba(61, 44, 232, 0.7);
+    --background-hover: rgba(61, 44, 232, 0.7);
+    font-family:'Manrope-ExtraBold';
+    font-style: normal;
+    color: white;
+}
+
+.background{
+    // display: flex;
+    --background: url(../../assets/login-final.svg) no-repeat center center / cover; 
+    // -webkit-background-size: cover;
+    // -moz-background-size: cover;
+    // background-size: cover;
+    
 }

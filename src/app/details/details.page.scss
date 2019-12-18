@@ -10,6 +10,11 @@
     overflow: visible;
     height: auto;
 }
+.reviews{
+    font-family:'Manrope-Medium';
+    font-style: normal;
+    font-size: 12px;
+}
 .readMoreLess {
     text-align: center;
     cursor:pointer;
@@ -30,4 +35,20 @@
 ion-label{
     font-family:'Manrope-Medium';
     font-style: normal;
+}
+#salmon{
+    --background: #E85B51;
+    --background-activated: rgba(232, 91, 81, 0.8);
+    --background-focused: rgba(232, 91, 81, 0.8);
+    --background-hover: rgba(232, 91, 81, 0.8);
+    font-family:'Manrope-ExtraBold';
+    font-style: normal;
+}
+#salmon-title{
+    font-family:'Manrope-ExtraBold';
+    font-style: normal;
+    color: #E85B51;
+    --color-activated: rgba(232, 91, 81, 0.8);
+    --color-focused: rgba(232, 91, 81, 0.8);
+    --color-hover: rgba(232, 91, 81, 0.8);
 }
