@@ -1,5 +1,7 @@
 {
   "name": "aincrad",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

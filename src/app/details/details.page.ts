@@ -139,6 +139,7 @@ export class DetailsPage implements OnInit {
   }
 
   NoShowMoreIfContentFit() {
+    /*
     var gameDescElmt = document.getElementById("gameDesc");
     gameDescElmt.className = 'show'
     console.log("gameDesc height: "+gameDescElmt.offsetHeight);
@@ -147,6 +148,10 @@ export class DetailsPage implements OnInit {
       document.getElementById("readMoreLess").innerHTML =  "";
     }
     else gameDescElmt.className = 'container'
+    */
+    var gameDescElmt = document.getElementById("gameDesc");
+    gameDescElmt.className = 'show'
+    document.getElementById("readMoreLess").innerHTML =  "";
   }
 
 }

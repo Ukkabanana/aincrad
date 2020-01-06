@@ -19,6 +19,8 @@ import { UserService } from './user.service';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { TransformProvider } from './providers/transform';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,6 +34,7 @@ import { TransformProvider } from './providers/transform';
     AngularFirestoreModule,
     HttpClientModule,
     RatingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     StatusBar,
